@@ -33,13 +33,6 @@ class Deck:
         del self.cards[random_choice]
         return card
 
-    def card_count(self):
-        return len(self.cards)
-
-    def display_whole_deck(self):
-        for c in self.cards:
-            print(c)
-
 
 class Game:
     def __init__(self):
@@ -96,15 +89,12 @@ class Player(Game):
     def add_money(self, winnings):
         self.money += winnings
 
-    def sub_money(self, sub):
-        self.money -= sub
-
     def show_money(self):
         print('\nYour money: ' + str(self.money))
 
     def set_bet(self):
         player_bet = int(input('How much would you like to bet?'))
-        self.sub_money(player_bet)
+        self.money -= player_bet
         self.bet = player_bet
 
     def clear(self):
@@ -237,4 +227,3 @@ new_player = Player()
 new_dealer = Dealer()
 new_player.set_name()
 user_interface(new_deck, new_player, new_dealer)
-
