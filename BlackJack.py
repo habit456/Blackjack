@@ -231,7 +231,7 @@ def user_interface(deck_obj, player_obj, dealer_obj):
             return 'Finished'
 
 
-print('Welcome to Blackjack 1.0')
+print('Welcome to Blackjack Version 1.5')
 new_deck = Deck()
 new_player = Player()
 new_dealer = Dealer()
