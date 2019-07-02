@@ -93,9 +93,17 @@ class Player(Game):
         print('\nYour money: ' + str(self.money))
 
     def set_bet(self):
-        player_bet = int(input('How much would you like to bet?'))
-        self.money -= player_bet
-        self.bet = player_bet
+        try:
+            player_bet = int(input('How much would you like to bet?'))
+        except ValueError:
+            self.set_bet()
+        else:
+            if player_bet > self.money:
+                print('\nBet exceeds your money. Try again.')
+                self.set_bet()
+            else:
+                self.money -= player_bet
+                self.bet = player_bet
 
     def clear(self):
         self.bet = 0
